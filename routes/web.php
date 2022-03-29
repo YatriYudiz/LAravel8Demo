@@ -15,7 +15,7 @@ use App\Http\Controllers\DemoController;
 */
 
 //Using closure
-Route::get('/welcome', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
@@ -53,9 +53,22 @@ Route::get('/{user}/friends/{name}', function($user,$name){
 //USing Controller
 Route::get('/controller-route', [DemoController::class, 'index']);
 
-// Route::get('/controller-list', [DemoController::class, 'list']);
+Route::get('/controller-list', [DemoController::class, 'list']);
 
 
-Route::get('/controller-list/{name}', [DemoController::class, 'list']);
+// Route::get('/controller-list/{name}', [DemoController::class, 'list']);
+
+// Session Demo 
+
+Route::get('session-get', [App\Http\Controllers\SessionController::class, 'accessSessionData']);
+Route::get('session-set', [App\Http\Controllers\SessionController::class, 'storeSessionData']);
+Route::get('session-remove', [App\Http\Controllers\SessionController::class, 'deleteSessionData']);
+
+Route::get('/session',function()  
+{  
+  return view('form');  
+});  
+Route::post('store-data',[App\Http\Controllers\FormController::class, 'store'])->name('forms.store');
+Route::get('allSessionShow',[App\Http\Controllers\FormController::class, 'retrievingSession']);
 
 require __DIR__.'/auth.php';

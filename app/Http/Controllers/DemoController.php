@@ -7,19 +7,19 @@ use Illuminate\Http\Request;
 class DemoController extends Controller
 {
     public function index() {
-        // echo "Welcome";
-        return view('welcome');
+        echo "Welcome";
+        // return view('welcome');
     }
 
-    // public function list() {
+    public function list() {
 
-    //     return view('demo');
-    // }
+        return view('demo');
+    }
 
-    public function list($name) {
+    // public function list($name) {
         
-        // return view('demo',['name' => $name]);
+    //     // return view('demo',['name' => $name]);
 
-        return ['name' => 'yatri', 'department' => 'PHP'];
-    }
+    //     return ['name' => 'yatri', 'department' => 'PHP'];
+    // }
 }

@@ -70,5 +70,7 @@ Route::get('/session',function()
 });  
 Route::post('store-data',[App\Http\Controllers\FormController::class, 'store'])->name('forms.store');
 Route::get('allSessionShow',[App\Http\Controllers\FormController::class, 'retrievingSession']);
+Route::view('user-data', 'user');
+
 
 require __DIR__.'/auth.php';
